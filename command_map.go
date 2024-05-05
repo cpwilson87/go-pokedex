@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func callbackMap(cfg *config) error {
+func callbackMap(cfg *config, args ...string) error {
 	response, error := cfg.pokeapiClient.ListLocationAreas(cfg.nextLocationAreaURL)
 	if error != nil {
 		return error
@@ -21,7 +21,7 @@ func callbackMap(cfg *config) error {
 
 	return nil
 }
-func callbackMapBack(cfg *config) error {
+func callbackMapBack(cfg *config, args ...string) error {
 	if cfg.prevLocationAreaURL == nil {
 		return errors.New("you are on the first page")
 	}
